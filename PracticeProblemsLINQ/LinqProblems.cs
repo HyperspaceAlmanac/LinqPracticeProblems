@@ -92,10 +92,25 @@ namespace PracticeProblemsLINQ
         public static double RunProblem5(List<string> classGrades)
         {
             //code
-
+            Func<string, double> everyStudent = StudentScoreLinq;
             //return
-            return 0;
+            return classGrades.Average(everyStudent);
+        }
 
+        public static double StudentScoreLinq(string grades)
+        {
+            string[] values = grades.Split(',');
+            if (values.Length == 1)
+            {
+                return 0;
+            }
+            int[] numbers = values.Select(s => Convert.ToInt32(s)).ToArray();
+            Array.Sort(numbers);
+            int[] sorted = new int[numbers.Length - 1];
+            for (int i = 0; i < numbers.Length - 1; i++) {
+                sorted[i] = numbers[i + 1];
+            }
+            return sorted.Select(n => Convert.ToDouble(n)).Average();
         }
         #endregion
 

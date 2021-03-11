@@ -38,6 +38,8 @@ namespace PracticeProblemsLINQ
                 "98,100,66,74,55"
             };
 
+            double classAverage = LinqProblems.RunProblem5(classGrades);
+
 
             //--------------------
             //Bonus Problem 1
