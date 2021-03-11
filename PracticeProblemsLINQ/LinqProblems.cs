@@ -104,8 +104,8 @@ namespace PracticeProblemsLINQ
             {
                 return 0;
             }
-            int[] numbers = values.Select(s => Convert.ToInt32(s)).ToArray();
-            Array.Sort(numbers);
+            int[] numbers = values.Select(s => Convert.ToInt32(s)).OrderBy(s => s).ToArray();
+
             int[] sorted = new int[numbers.Length - 1];
             for (int i = 0; i < numbers.Length - 1; i++) {
                 sorted[i] = numbers[i + 1];
@@ -120,11 +120,17 @@ namespace PracticeProblemsLINQ
         //and returns an alphabetically ordered string corresponding to the letter frequency(i.e. "E1I1L2R2T1")
         public static string RunBonusProblem1(string word)
         {
+            if (word.Length == 0)
+            {
+                return "";
+            }
+            word = word.ToLower();
             //code
+            var groups = word.OrderBy(s => s).GroupBy(s => s).ToList();
+            string result = String.Join<string>("", groups.Select(g => g.Key.ToString().ToUpper() + g.Count().ToString()));
 
             //return
-            return null;
-
+            return result;
         }
         #endregion
     }

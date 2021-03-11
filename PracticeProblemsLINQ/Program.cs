@@ -44,6 +44,7 @@ namespace PracticeProblemsLINQ
             //--------------------
             //Bonus Problem 1
             string letters = "terrill";
+            string result = LinqProblems.RunBonusProblem1(letters);
 
         }
     }
