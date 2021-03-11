@@ -17,8 +17,9 @@ namespace PracticeProblemsLINQ
         public static List<string> RunProblem1(List<string> words)
         {
             //code
-
+            List<string> filtered = words.Where(w => w.Contains("th")).ToList();
             //return
+            return filtered;
 
         }
         #endregion
@@ -31,6 +32,7 @@ namespace PracticeProblemsLINQ
             //code
 
             //return
+            return null;
 
         }
         #endregion
@@ -43,6 +45,7 @@ namespace PracticeProblemsLINQ
             //code
 
             //return
+            return null;
 
         }
         #endregion
@@ -56,6 +59,7 @@ namespace PracticeProblemsLINQ
             //code
 
             //return
+            return null;
 
         }
         #endregion
@@ -71,6 +75,7 @@ namespace PracticeProblemsLINQ
             //code
 
             //return
+            return 0;
 
         }
         #endregion
@@ -84,6 +89,7 @@ namespace PracticeProblemsLINQ
             //code
 
             //return
+            return null;
 
         }
         #endregion
