@@ -97,16 +97,32 @@ namespace PracticeProblemsLINQ
             return classGrades.Average(everyStudent);
         }
 
+        // Linq within Linq. Linqception
         public static double StudentScoreLinq(string grades)
         {
             string[] values = grades.Split(',');
+            List<int> numbers = new List<int>();
             if (values.Length <= 1)
             {
                 return 0;
             }
-            var numbers = values.Select(s => Convert.ToInt32(s)).OrderBy(s => s).ToList();
-            numbers.RemoveAt(0);
-            return numbers.Select(n => Convert.ToDouble(n)).Average();
+            try
+            {
+                numbers = values.Select(s => Convert.ToInt32(s)).OrderBy(s => s).ToList();
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("One of the numbers is not properly formatted. Set average to 0");
+            }
+            if (numbers.Count > 0)
+            {
+                numbers.RemoveAt(0);
+                return numbers.Select(n => Convert.ToDouble(n)).Average();
+            }
+            else
+            {
+                return 0;
+            }
         }
         #endregion
 
