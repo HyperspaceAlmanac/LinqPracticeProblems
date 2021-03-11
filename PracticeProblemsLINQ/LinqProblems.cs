@@ -30,9 +30,9 @@ namespace PracticeProblemsLINQ
         public static List<string> RunProblem2(List<string> names)
         {
             //code
-
+            List<string> filtered = names.Distinct().ToList();
             //return
-            return null;
+            return filtered;
 
         }
         #endregion
