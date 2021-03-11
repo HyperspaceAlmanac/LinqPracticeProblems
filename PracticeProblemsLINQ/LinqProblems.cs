@@ -65,9 +65,20 @@ namespace PracticeProblemsLINQ
         public static Customer RunProblem4(List<Customer> customers)
         {
             //code
+            List<Customer> customerList = customers.Where(c => c.Id == 3).ToList();
 
             //return
-            return null;
+            if (customerList.Count == 1)
+            {
+                Customer renamed = customerList[0];
+                renamed.FirstName = "Lloyd";
+                renamed.LastName = "Unicorn";
+                return renamed;
+            }
+            else
+            {
+                return null;
+            }
 
         }
         #endregion
