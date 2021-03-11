@@ -100,17 +100,13 @@ namespace PracticeProblemsLINQ
         public static double StudentScoreLinq(string grades)
         {
             string[] values = grades.Split(',');
-            if (values.Length == 1)
+            if (values.Length <= 1)
             {
                 return 0;
             }
-            int[] numbers = values.Select(s => Convert.ToInt32(s)).OrderBy(s => s).ToArray();
-
-            int[] sorted = new int[numbers.Length - 1];
-            for (int i = 0; i < numbers.Length - 1; i++) {
-                sorted[i] = numbers[i + 1];
-            }
-            return sorted.Select(n => Convert.ToDouble(n)).Average();
+            var numbers = values.Select(s => Convert.ToInt32(s)).OrderBy(s => s).ToList();
+            numbers.RemoveAt(0);
+            return numbers.Select(n => Convert.ToDouble(n)).Average();
         }
         #endregion
 
